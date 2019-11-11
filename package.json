@@ -4,5 +4,12 @@
   "main": "index.js",
   "repository": "https://github.com/3daddict/shopify-api.git",
   "author": "Michael <print@3daddict.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "shopify-api-node": "^2.24.0"
+  }
 }
