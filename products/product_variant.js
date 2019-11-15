@@ -6,18 +6,20 @@ const writeJSON = require('../components/writeJSON');
 const shopify = new Shopify({
   shopName: process.env.SHOPNAME,
   apiKey: process.env.APIKEY,
-  password: process.env.PASSWORD
+  password: process.env.PASSWORD,
+  apiVersion: process.env.APIVERSION
 });
 
 (async () => {
-    let params = { limit: 50 };
+    let params = { limit: 10 };
    
     do {
       const products = await shopify.product.list(params);
    
-      console.log(products);
-
+      //console.log(products);
+      console.log('Before:', params);
       params = products.nextPageParameters;
-      writeJSON(products, './data/product_variants.json')
+      console.log('After:', params);
+      //writeJSON(products, './data/product_variants.json')
     } while (params !== undefined);
   })().catch(console.error);
